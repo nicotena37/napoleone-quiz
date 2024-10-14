@@ -61,7 +61,7 @@
     <h1>Quando è nato Napoleone? (gg/mm/yyyy)</h1>
     <input type="text" id="napoleon-birthdate" placeholder="Inserisci la data di nascita">
     <button onclick="checkAnswer()">Invia</button>
-    <div id="good">GOOD</div>
+    <div id="good">Ben fatto, porcodiooooooooooo sei fortissimo!</div>
 
     <div id="true-false">
         <h1>È bianco il cavallo di Napoleone? (vero/falso)</h1>
@@ -91,14 +91,14 @@
             const correctAnswer = "15/08/1769"; // Data di nascita di Napoleone
 
             if (answer === correctAnswer) {
-                document.getElementById('good').style.display = 'block'; // Mostra "GOOD"
+                document.getElementById('good').style.display = 'block'; // Mostra "Ben fatto"
                 setTimeout(() => {
-                    document.getElementById('good').style.display = 'none'; // Nasconde "GOOD"
+                    document.getElementById('good').style.display = 'none'; // Nasconde "Ben fatto"
                     document.getElementById('true-false').style.display = 'block'; // Mostra la domanda successiva
                     window.scrollTo(0, document.body.scrollHeight); // Scorre verso il basso
                 }, 2000);
             } else {
-                alert("Risposta sbagliata! Riprova.");
+                alert("CAPRA"); // Messaggio di errore
             }
         }
 
@@ -115,4 +115,3 @@
     </script>
 </body>
 </html>
-
