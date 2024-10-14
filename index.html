@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Domande su Napoleone</title>
+    <style>
+        body {
+            background-color: #add8e6; /* Sfondo azzurro */
+            font-family: 'Arial', sans-serif;
+            color: #000000; /* Testo nero */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px; /* Padding per evitare che il contenuto tocchi i bordi */
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            line-height: 1.4; /* Aumenta l'interlinea per una migliore leggibilità */
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            width: 100%; /* Larghezza al 100% per dispositivi mobili */
+            max-width: 300px; /* Massima larghezza per desktop */
+            box-sizing: border-box; /* Include il padding nella larghezza */
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Colore verde */
+            color: white;
+            border: none;
+            border-radius: 5px; /* Angoli arrotondati */
+            transition: background-color 0.3s; /* Transizione per effetto hover */
+        }
+        button:hover {
+            background-color: #45a049; /* Colore più scuro al passaggio del mouse */
+        }
+        #good {
+            display: none;
+            font-size: 30px;
+            color: green;
+            margin-top: 20px;
+        }
+        #true-false {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quando è nato Napoleone? (gg/mm/yyyy)</h1>
+    <input type="text" id="napoleon-birthdate" placeholder="Inserisci la data di nascita">
+    <button onclick="checkAnswer()">Invia</button>
+    <div id="good">GOOD</div>
+
+    <div id="true-false">
+        <h1>È bianco il cavallo di Napoleone? (vero/falso)</h1>
+        <input type="text" id="horse-color" placeholder="Inserisci vero o falso">
+        <button onclick="checkTrueFalse()">Invia</button>
+    </div>
+
+    <audio id="audio">
+        <source src="pirati_dei_caraibi.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        let audio = document.getElementById('audio');
+
+        // Riproduce la musica di sottofondo
+        window.onload = function() {
+            audio.currentTime = 130; // Inizia a 2:10 (130 secondi)
+            audio.play();
+            setTimeout(() => {
+                audio.pause(); // Ferma dopo 40 secondi (fino a 2:50)
+            }, 40000);
+        };
+
+        function checkAnswer() {
+            const answer = document.getElementById('napoleon-birthdate').value;
+            const correctAnswer = "15/08/1769"; // Data di nascita di Napoleone
+
+            if (answer === correctAnswer) {
+                document.getElementById('good').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('good').style.display = 'none';
+                    document.getElementById('true-false').style.display = 'block';
+                    window.scrollTo(0, document.body.scrollHeight); // Scorre verso il basso
+                }, 2000);
+            } else {
+                alert("Risposta sbagliata! Riprova.");
+            }
+        }
+
+        function checkTrueFalse() {
+            const answer = document.getElementById('horse-color').value.toLowerCase();
+            const correctAnswer = "vero"; // Risposta corretta
+
+            if (answer === correctAnswer) {
+                alert("Corretto! Complimenti!");
+            } else {
+                alert("Sbagliato! Riprova.");
+            }
+        }
+    </script>
+</body>
+</html>
