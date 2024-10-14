@@ -91,14 +91,14 @@
             const correctAnswer = "15/08/1769"; // Data di nascita di Napoleone
 
             if (answer === correctAnswer) {
-                document.getElementById('hai cercato su internet maledetto, vabbe andiamo avanti..').style.display = 'block';
+                document.getElementById('good').style.display = 'block'; // Mostra "GOOD"
                 setTimeout(() => {
-                    document.getElementById('hai cercato su internet maledetto, vabbe andiamo avanti..').style.display = 'none';
-                    document.getElementById('true-false').style.display = 'block';
+                    document.getElementById('good').style.display = 'none'; // Nasconde "GOOD"
+                    document.getElementById('true-false').style.display = 'block'; // Mostra la domanda successiva
                     window.scrollTo(0, document.body.scrollHeight); // Scorre verso il basso
                 }, 2000);
             } else {
-                alert("Risposta sbagliata! porcatroia che ignorante.");
+                alert("Risposta sbagliata! Riprova.");
             }
         }
 
@@ -107,11 +107,12 @@
             const correctAnswer = "vero"; // Risposta corretta
 
             if (answer === correctAnswer) {
-                alert("Corretto! grandeee ooooo Complimenti numero 1 porcodioooooo!");
+                alert("Corretto! Complimenti!");
             } else {
-                alert("Sbagliato! Riprova cretino.");
+                alert("Sbagliato! Riprova.");
             }
         }
     </script>
 </body>
 </html>
+
